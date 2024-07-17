@@ -1,0 +1,19 @@
+<form #labelform="ngForm" (ngSubmit)="insertlabel(labelform)">
+  <div class="container-fluid">
+    <h2>Insert genre</h2>
+
+    <br>
+    <label for="label" class="sr-only">Genre</label>
+    <input type="label" id="label" name="label" #name="ngModel" ngModel class="form-control" placeholder="Label"
+           required autofocus>
+    <span class="text-danger" *ngIf="name.touched && name.invalid">Insert Label name</span>
+    <input type="email" id="email" name="email" #email="ngModel" ngModel class="form-control" placeholder="Email"
+           required autofocus>
+    <span class="text-danger" *ngIf="email.touched && email.invalid">Insert Label email</span>
+    <input type="country" id="country" name="country" #country="ngModel" ngModel class="form-control" placeholder="Country" required
+           autofocus>
+    <span class="text-danger" *ngIf="country.touched && country.invalid">Insert Label email</span>
+    <hr>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="labelform.invalid">Submit</button>
+  </div>
+</form>

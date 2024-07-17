@@ -1,0 +1,12 @@
+<form #mediumform="ngForm" (ngSubmit)="insertMedium(mediumform)">
+  <div class="container-fluid">
+    <h2>Insert genre</h2>
+
+    <br>
+    <label for="medium" class="sr-only">Genre</label>
+    <input type="medium" id="medium" name="medium" #name="ngModel" ngModel class="form-control" placeholder="Medium" required autofocus>
+    <span class="text-danger" *ngIf="name.touched && name.invalid">Insert Medium</span>
+    <hr>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="mediumform.invalid">Submit</button>
+  </div>
+</form>

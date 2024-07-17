@@ -1,0 +1,23 @@
+<form #producerform="ngForm" (ngSubmit)="insertProducer(producerform)">
+  <div class="container-fluid">
+    <h2>Insert producer</h2>
+
+    <br>
+    <label for="producer" class="sr-only">Producer</label>
+
+    <input #name="ngModel" type="producer" id="producer" name="name" ngModel class="form-control" placeholder="Name" required autofocus>
+    <span class="text-danger" *ngIf="name.touched && name.invalid">Insert Producer name</span>
+    <input #surname="ngModel" type="producer" id="surname" name="surname" ngModel class="form-control" placeholder="Surname" required autofocus>
+    <span class="text-danger" *ngIf="surname.touched && surname.invalid">Insert Producer surname</span>
+    <input #email="ngModel" type="producer" id="email" name="email" ngModel class="form-control" placeholder="Email" required autofocus>
+    <span class="text-danger" *ngIf="email.touched && email.invalid">Insert Producer email</span>
+    <input #artistName="ngModel" type="producer" id="artistName" name="artistName" ngModel class="form-control" placeholder="Artist Name" required autofocus>
+    <span class="text-danger" *ngIf="artistName.touched && artistName.invalid">Insert Artist name</span>
+    <input #date="ngModel" type="datetime-local" id="birthday" name="birthday" ngModel class="form-control" placeholder="Date" required autofocus>
+    <span class="text-danger" *ngIf="date.touched && date.invalid">Insert Producer birthday</span>
+    <input #country="ngModel" type="country" id="country" name="country" ngModel class="form-control" placeholder="Country" required autofocus>
+    <span class="text-danger" *ngIf="country.touched && country.invalid">Insert Producer email</span>
+    <hr>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="producerform.invalid">Submit</button>
+  </div>
+</form>

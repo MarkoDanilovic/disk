@@ -1,0 +1,26 @@
+<form #userform="ngForm" (ngSubmit)="insertUser(userform)">
+  <div class="container-fluid">
+    <h2>Insert admin</h2>
+
+    <br>
+    <label class="sr-only">User</label>
+    <input #name="ngModel" type="name" id="name" name="name" ngModel class="form-control" placeholder="Name" required autofocus>
+    <span class="text-danger" *ngIf="name.touched && name.invalid">Insert User name</span>
+    <input #lastname="ngModel" type="lastname" id="lastname" name="lastname" ngModel class="form-control" placeholder="Lastname" required autofocus>
+    <span class="text-danger" *ngIf="lastname.touched && lastname.invalid">Insert User lastname</span>
+    <input #email="ngModel" type="email" id="email" name="email" ngModel class="form-control" placeholder="Email" required autofocus>
+    <span class="text-danger" *ngIf="email.touched && email.invalid">Insert User email</span>
+    <input #password="ngModel" type="password" id="password" name="password" ngModel class="form-control" placeholder="Password" required autofocus>
+    <span class="text-danger" *ngIf="password.touched && password.invalid">Insert User password</span>
+    <input #telephone="ngModel" type="telephone" id="telephone" name="telephone" ngModel class="form-control" placeholder="Telephone" required autofocus>
+    <span class="text-danger" *ngIf="telephone.touched && telephone.invalid">Insert User telephone</span>
+    <input #city="ngModel" type="city" id="city" name="city" ngModel class="form-control" placeholder="City" required autofocus>
+    <span class="text-danger" *ngIf="city.touched && city.invalid">Insert User city</span>
+    <input #address="ngModel" type="address" id="address" name="address" ngModel class="form-control" placeholder="Address" required autofocus>
+    <span class="text-danger" *ngIf="address.touched && address.invalid">Insert User address</span>
+    <input #country="ngModel" type="country" id="country" name="country" ngModel class="form-control" placeholder="Country" required autofocus>
+    <span class="text-danger" *ngIf="country.touched && country.invalid">Insert User country</span>
+    <hr>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="userform.invalid">Submit</button>
+  </div>
+</form>

@@ -1,0 +1,26 @@
+<div *ngIf="track">
+  <div class="col-6">
+    <img src="{{track.pictureUrl}}" alt="{{track.trackName}}" class="img-fluid w-100">
+  </div>
+  <div class="col-6">
+    <h3>Track name : {{track.trackName}}</h3>
+    <p>Price : {{track.price | currency}}</p>
+    <div class="d-flex justify-content-start align-items-center">
+
+      <button class="btn btn-outline-secondary btn-lg ml-5" (click)="addToCart(track)">Add to cart</button>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 ml-3">
+      <h4>Description</h4>
+      <p>Genre: {{track.genre}}</p>
+      <p>Artist: {{track.producer}}</p>
+      <p>Label: {{track.label}}</p>
+      <p>Duration: {{track.duration}}</p>
+      <p>Medium: {{track.medium}}</p>
+
+    </div>
+  </div>
+</div>
+
+

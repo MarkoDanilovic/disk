@@ -1,0 +1,49 @@
+<ng-container *ngIf="this.tracks.length > 0">
+  <div class="container">
+    <div class="card-table">
+      <div class="cart-product">
+        <table class="table table-responsive">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Producer</th>
+            <th>Duration</th>
+            <th>Price</th>
+            <th>action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let track of this.cartService.cartItemList">
+            <td>{{track.id}}</td>
+            <td>{{track.trackName}}</td>
+            <td>{{track.producer}}</td>
+            <td>{{track.duration}}</td>
+            <td>{{track.price}}</td>
+            <td>
+              <button class="btn btn-danger" (click)="removeItem(track)"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <h4>Total Price : {{this.cartService.getTotalPrice()}}</h4>
+    <button class="btn btn-primary" [disabled]="this.cartService.loggedIn === null" (click)="openDialog(); addCartItem()">Checkout</button>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="this.tracks.length === 0">
+  <div class="container" >
+    <div class="card">
+      <h5 class="card-title">My Cart</h5>
+    </div>
+    <div class="center">
+      <h4>Your cart is empty</h4>
+      <h6>Add item now</h6>
+      <button class="btn btn-primary" routerLink="/shop">Go to shop</button>
+    </div>
+  </div>
+</ng-container>
+
+

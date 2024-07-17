@@ -1,0 +1,345 @@
+<h3>Genres</h3>
+<div class="container mat-elevation-z8">
+  <mat-table [dataSource]="genreDataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="genreName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Genre Name</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.genreName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-button>Edit</button>
+        <button mat-button (click)="deleteGenre(row.id)" color="warn">Delete</button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumnsGenre"></mat-header-row>
+    <mat-row
+      style="cursor: default"
+      *matRowDef="let row; columns: displayedColumnsGenre">
+    </mat-row>
+  </mat-table>
+  <button mat-button color="accent" (click)="insertGenre()">Add Genre</button>
+</div>
+<hr>
+<h3>Medium</h3>
+<div class="container mat-elevation-z8">
+  <mat-table [dataSource]="mediumDataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mediumName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Medium Name</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.mediumName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-button>Edit</button>
+        <button mat-button (click)="deleteMedium(row.id)" color="warn">Delete</button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumnsMedium"></mat-header-row>
+    <mat-row
+      style="cursor: default"
+      *matRowDef="let row; columns: displayedColumnsMedium">
+    </mat-row>
+  </mat-table>
+  <button mat-button color="accent" (click)="insertMedium()">Add Medium</button>
+</div>
+<hr>
+<h3>Labels</h3>
+<div class="container mat-elevation-z8">
+  <mat-table [dataSource]="labelDataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Label Name</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.email }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Country</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.country }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-button>Edit</button>
+        <button mat-button (click)="deleteLabel(row.id)" color="warn">Delete</button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumnsLabel"></mat-header-row>
+    <mat-row
+      style="cursor: default"
+      *matRowDef="let row; columns: displayedColumnsLabel">
+    </mat-row>
+  </mat-table>
+  <button mat-button color="accent" (click)="insertLabel()">Add Label</button>
+</div>
+<hr>
+<h3>Producers</h3>
+<div class="container mat-elevation-z8">
+  <mat-table [dataSource]="producerDataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="surname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>SurnameName</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.surname }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="artistName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Artist Name</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.artistName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.email }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="birthday">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Birthday</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.birthday | date}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Country</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.country }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-button>Edit</button>
+        <button mat-button (click)="deleteProducer(row.id)" color="warn">Delete</button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumnsProducer"></mat-header-row>
+    <mat-row
+      style="cursor: default"
+      *matRowDef="let row; columns: displayedColumnsProducer">
+    </mat-row>
+  </mat-table>
+  <button mat-button color="accent" (click)="insertProducer()">Add Label</button>
+</div>
+<hr>
+<h3>Tracks</h3>
+<div class="container mat-elevation-z8">
+  <mat-table [dataSource]="trackDataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="trackName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.trackName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="producer">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Producer</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.producer }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="label">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Label</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.label }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="duration">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Duration</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.duration }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="genre">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Genre</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.genre}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="publishDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Publish Date</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.publishDate | date }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.price }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="medium">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Medium</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.medium }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="quantity">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.quantity }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-button>Edit</button>
+        <button mat-button (click)="deleteTrack(row.id)" color="warn">Delete</button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumnsTrack"></mat-header-row>
+    <mat-row
+      style="cursor: default"
+      *matRowDef="let row; columns: displayedColumnsTrack">
+    </mat-row>
+  </mat-table>
+  <button mat-button color="accent" (click)="insertTrack()">Add Track</button>
+</div>
+<hr>
+<h3>Users</h3>
+<div class="container mat-elevation-z8">
+  <mat-table [dataSource]="userDataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Producer</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.lastname }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Label</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.email }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="password">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Duration</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.password }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Genre</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.city}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Publish Date</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.address }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.country }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="role">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Medium</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.role }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="telephone">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.telephone }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-button>Edit</button>
+        <button mat-button (click)="deleteUser(row.id)" color="warn">Delete</button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumnsUser"></mat-header-row>
+    <mat-row
+      style="cursor: default"
+      *matRowDef="let row; columns: displayedColumnsUser">
+    </mat-row>
+  </mat-table>
+  <button mat-button color="accent" (click)="insertUser()">Add User</button>
+</div>
+<hr>
+<h3>Carts</h3>
+<div class="container mat-elevation-z8">
+  <mat-table [dataSource]="cartDataSource" multiTemplateDataRows>
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="orderDate">
+      <mat-header-cell *matHeaderCellDef>Order Date</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.orderDate }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="subtotal">
+      <mat-header-cell *matHeaderCellDef>Subtotal</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.subtotal }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="comment">
+      <mat-header-cell *matHeaderCellDef>Comment</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.comment }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.address }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="paymentMethod">
+      <mat-header-cell *matHeaderCellDef>Payment Method</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.paymentMethod }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="payment">
+      <mat-header-cell *matHeaderCellDef>Payment</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.payment}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef>City</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.city}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.firstName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.lastName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="">
+      <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.lastName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-button>Edit</button>
+        <button mat-button (click)="deleteCart(row.id)" color="warn">Delete</button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="expandedDetail">
+      <mat-cell mat-cell *matCellDef="let element" [attr.colspan]="displayedColumnsCart.length">
+        <div class="example-element-detail" *ngIf="element.cartItems"
+             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <div class="inner-table mat-elevation-z8" *ngIf="expandedElement">
+            <mat-table #innerTables [dataSource]="element.cartItems">
+              <ng-container matColumnDef="{{innerColumn}}" *ngFor="let innerColumn of displayedColumnsCartInner">
+                <mat-header-cell *matHeaderCellDef> {{innerColumn}} </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element[innerColumn]}} </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayedColumnsCartInner"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumnsCartInner;"></mat-row>
+            </mat-table>
+          </div>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+
+
+    <mat-row mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></mat-row>
+    <mat-header-row *matHeaderRowDef="displayedColumnsCart"></mat-header-row>
+    <mat-row *matRowDef="let element; columns: displayedColumnsCart;"
+             [class.example-element-row]="element.cartItems"
+             [class.example-expanded-row]="expandedElement === element" (click)="toggleRow(element)">
+    </mat-row>
+
+
+    <!--        <mat-header-row *matHeaderRowDef="displayedColumnsCart"></mat-header-row>-->
+    <!--        <mat-row-->
+    <!--          style="cursor: default"-->
+    <!--          *matRowDef="let row; columns: displayedColumnsCart">-->
+    <!--        </mat-row>-->
+
+  </mat-table>
+</div>

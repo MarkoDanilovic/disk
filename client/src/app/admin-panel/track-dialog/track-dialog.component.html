@@ -1,0 +1,49 @@
+<form #trackform="ngForm" (ngSubmit)="insertTrack(trackform)">
+  <div class="container-fluid">
+    <h2>Insert track</h2>
+
+    <br>
+    <label for="track" class="sr-only">Track</label>
+    <input #name="ngModel" type="trackname" id="track" name="trackname" ngModel class="form-control" placeholder="Track Name" required
+           autofocus>
+    <span class="text-danger" *ngIf="name.touched && name.invalid">Insert Track name</span>
+    <input #price="ngModel" type="price" id="price" name="price" ngModel class="form-control" placeholder="Price" required
+           autofocus>
+    <span class="text-danger" *ngIf="price.touched && price.invalid">Insert Track price</span>
+    <input #quantity="ngModel" type="quantity" id="quantity" name="quantity" ngModel class="form-control" placeholder="Quantity" required
+           autofocus>
+    <span class="text-danger" *ngIf="quantity.touched && quantity.invalid">Insert Track quantity</span>
+    <input #duration="ngModel" type="duration" id="duration" name="duration" ngModel class="form-control" placeholder="Duration" required
+           autofocus>
+    <span class="text-danger" *ngIf="duration.touched && duration.invalid">Insert Track duration</span>
+
+    <select #producer="ngModel" id="producer" name="producerId" ngModel class="form-control" required
+            autofocus>
+
+      <option *ngFor="let producer of data.IProducer" [value]="producer.id">{{producer.artistName}}</option>
+
+    </select>
+    <span class="text-danger" *ngIf="producer.touched && producer.invalid">Insert Track producer</span>
+    <select #medium="ngModel" id="medium" name="mediumId" ngModel class="form-control"  required
+            autofocus>
+      <option *ngFor="let medium of data.IMedium" [value]="medium.id">{{medium.mediumName}}</option>
+    </select>
+    <span class="text-danger" *ngIf="medium.touched && medium.invalid">Insert Track medium</span>
+    <select #genre="ngModel" id="genre" name="genreId" ngModel class="form-control"  required
+            autofocus>
+      <option *ngFor="let genre of data.IGenre" [value]="genre.id">{{genre.genreName}}</option>
+    </select>
+    <span class="text-danger" *ngIf="genre.touched && genre.invalid">Insert Track genre</span>
+    <select #label="ngModel" id="label" name="labelId" ngModel class="form-control"  required
+            autofocus>
+
+      <option *ngFor="let label of data.ILabel" [value]="label.id" [selected]="true">{{label.name}}</option>
+    </select>
+    <span class="text-danger" *ngIf="label.touched && label.invalid">Insert Track label</span>
+    <input #date="ngModel" type="datetime-local" id="publishDate" name="publishdate" ngModel class="form-control"  placeholder="Publish Date" required
+           autofocus>
+    <span class="text-danger" *ngIf="date.touched && date.invalid">Insert Track publish date</span>
+    <hr>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="trackform.invalid">Submit</button>
+  </div>
+</form>
